@@ -1,43 +1,856 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>st Janani Church of Uganda - Home</title>
-  <meta name="description" content="Welcome to Church of Uganda - Growing in faith, serving in love">
+  <title>St. Janani Church of Uganda - Home</title>
+  <meta name="description" content="Welcome to St. Janani Church of Uganda - Growing in faith, serving in love">
   <meta name="keywords" content="Church, Uganda, Christian, Worship, Faith">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.jpg" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #408652;
+      --primary-dark: #017d24;
+      --secondary: #d5b895;
+      --light: hwb(38 94% 3% / 0.834);
+      --dark: #1e1e1e;
+      --gray: #6c757d;
+      --success: #28a745;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: #444;
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6, .sitename {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      padding: 10px 25px;
+      border-radius: 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary);
+      border-color: var(--primary);
+      padding: 10px 25px;
+      border-radius: 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+    
+    /* Header */
+    .header {
+      background-color: var(--white);
+      padding: 15px 0;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      max-height: 60px;
+      margin-right: 15px;
+    }
+    
+    .logo h2 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: var(--primary);
+    }
+    
+    .navmenu ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navmenu li {
+      position: relative;
+      padding: 0 15px;
+    }
+    
+    .navmenu a {
+      display: block;
+      position: relative;
+      color: var(--dark);
+      font-weight: 500;
+      padding: 10px 0;
+    }
+    
+    .navmenu a.active, 
+    .navmenu a:hover {
+      color: var(--primary);
+    }
+    
+    .navmenu a.active:after, 
+    .navmenu a:hover:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 5px;
+      left: 0;
+      background-color: var(--primary);
+    }
+    
+    .mobile-nav-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      min-height: 600px;
+      background-color: var(--dark);
+      overflow: hidden;
+    }
+    
+    .carousel-item {
+      height: 80vh;
+      min-height: 600px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .carousel-item:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .carousel-item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .carousel-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+      color: var(--white);
+      width: 80%;
+      max-width: 800px;
+    }
+    
+    .carousel-container h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+    
+    .carousel-container p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.3s forwards;
+    }
+    
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .carousel-indicators {
+      z-index: 15;
+    }
+    
+    .carousel-indicators button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 5px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+    }
+    
+    .carousel-indicators .active {
+      background-color: var(--white);
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+      z-index: 15;
+      width: 10%;
+    }
+    
+    /* Section Styling */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .section-title h2:after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-title p {
+      font-size: 1.2rem;
+      color: var(--gray);
+    }
+    
+    .dark-background {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+    
+    .dark-background .section-title h2:after {
+      background-color: var(--secondary);
+    }
+    
+    .dark-background .section-title p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Ministries Section */
+    .service-item {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    
+    .service-item:hover:before {
+      width: 100%;
+      background-color: var(--primary);
+    }
+    
+    .service-item:hover {
+      color: var(--white);
+    }
+    
+    .service-item:hover .service-heading,
+    .service-item:hover p {
+      color: var(--white);
+    }
+    
+    .service-item:hover .service-item-icon {
+      color: var(--white);
+    }
+    
+    .service-item .number {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .service-item:hover .number {
+      color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .service-item-icon {
+      color: var(--primary);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .service-heading {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    /* About Section */
+    .about .content {
+      padding: 60px 0;
+    }
+    
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    
+    .img-overlap {
+      position: relative;
+      z-index: 1;
+      box-shadow: 15px 15px 0 var(--secondary);
+    }
+    
+    .content-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    
+    .content-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    
+    .list-check {
+      margin-bottom: 30px;
+    }
+    
+    .list-check li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 10px;
+    }
+    
+    .list-check li:before {
+      content: "\F26A";
+      font-family: "bootstrap-icons";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: var(--success);
+    }
+    
+    .btn-cta {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 12px 30px;
+      border-radius: 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-cta:hover {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+    
+    .pulsating-play-btn {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 70px;
+      height: 70px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      z-index: 10;
+      box-shadow: 0 0 0 0 rgba(8, 141, 37, 0.7);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(22, 154, 22, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 20px rgba(5, 149, 41, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(3, 189, 74, 0);
+      }
+    }
+    
+    /* Services Carousel */
+    .services-carousel-wrap {
+      position: relative;
+      padding: 30px 0;
+    }
+    
+    .swiper {
+      width: 30px;
+      padding-bottom: 50px;
+    }
+    
+    .navigation-prev,
+    .navigation-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      font-size: 1.5rem;
+      z-index: 10;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .navigation-prev {
+      left: -25px;
+    }
+    
+    .navigation-next {
+      right: -25px;
+    }
+    
+    .navigation-prev:hover,
+    .navigation-next:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .swiper-slide {
+      height: auto;
+    }
+    
+    .service-item-contents {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: var(--white);
+      z-index: 1;
+    }
+    
+    .service-item-category {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 5px 15px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+    
+    .service-item-title {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    
+    /* Recent Sermons */
+    .post-item {
+      background-color: var(--white);
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+    
+    .post-img {
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .post-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+    
+    .post-item:hover .post-img img {
+      transform: scale(1.1);
+    }
+    
+    .post-date {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 8px 15px;
+      font-size: 0.8rem;
+    }
+    
+    .post-content {
+      padding: 25px;
+      flex-grow: 1;
+    }
+    
+    .post-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .meta {
+      margin-bottom: 15px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    .readmore {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--primary);
+      font-weight: 500;
+      margin-top: auto;
+    }
+    
+    .readmore i {
+      transition: all 0.3s ease;
+    }
+    
+    .readmore:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.7);
+      padding-top: 80px;
+    }
+    
+    .footer-top {
+      padding-bottom: 40px;
+    }
+    
+    .footer h4 {
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer h4:after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background-color: var(--secondary);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+    
+    .footer-contact p {
+      margin-bottom: 10px;
+    }
+    
+    .footer-contact strong {
+      color: var(--white);
+    }
+    
+    .copyright {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .social-links {
+      display: flex;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    /* Scroll Top Button */
+    .scroll-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .scroll-top.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .scroll-top:hover {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1199px) {
+      .carousel-container h2 {
+        font-size: 2.5rem;
+      }
+      
+      .navigation-prev {
+        left: 10px;
+      }
+      
+      .navigation-next {
+        right: 10px;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .navmenu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background-color: var(--white);
+        padding: 80px 20px 0;
+        transition: all 0.3s ease;
+        z-index: 1001;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+      }
+      
+      .navmenu.active {
+        right: 0;
+      }
+      
+      .navmenu ul {
+        flex-direction: column;
+      }
+      
+      .navmenu li {
+        padding: 10px 0;
+      }
+      
+      .mobile-nav-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1002;
+      }
+      
+      .mobile-nav-toggle.bi-x {
+        color: var(--dark);
+      }
+      
+      .hero {
+        height: 70vh;
+        min-height: 500px;
+      }
+      
+      .carousel-item {
+        height: 70vh;
+        min-height: 500px;
+      }
+      
+      .carousel-container h2 {
+        font-size: 2rem;
+      }
+      
+      .carousel-container p {
+        font-size: 1rem;
+      }
+      
+      .img-overlap {
+        margin-bottom: 30px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .section {
+        padding: 60px 0;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .hero {
+        height: 60vh;
+        min-height: 400px;
+      }
+      
+      .carousel-item {
+        height: 60vh;
+        min-height: 400px;
+      }
+      
+      .carousel-container h2 {
+        font-size: 1.8rem;
+      }
+      
+      .content-title {
+        font-size: 2rem;
+      }
+      
+      .logo h2 {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .hero {
+        height: 50vh;
+        min-height: 350px;
+      }
+      
+      .carousel-item {
+        height: 50vh;
+        min-height: 350px;
+      }
+      
+      .carousel-container h2 {
+        font-size: 1.5rem;
+      }
+      
+      .logo img {
+        max-height: 40px;
+      }
+      
+      .logo h2 {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center position-relative">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo.jpg" alt="Church of Uganda">
-        <h2>st Janani Church of Uganda Kabalagala</h2>
-        <!-- <h1 class="sitename">Church of Uganda</h1>  -->
+<body>
+  <!-- Header -->
+  <header id="header" class="header">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo">
+        <img src="./assets/img/logo.jpg" alt="St. Janani Church">
+        <h2>St. Janani Church of Uganda</h2>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -45,479 +858,388 @@
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
-          <!-- <li><a href="projects.html">Ministries</a></li> -->
+          <li><a href="ministries.html">Ministries</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
+      <i class="mobile-nav-toggle bi bi-list"></i>
     </div>
   </header>
 
-  <main class="main">
-
+  <main>
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
+    <section id="hero" class="hero">
       <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
-        <div class="carousel-item active">
-          <img src="assets/img/hero_2.jpg" alt="Church service">
-          <div class="carousel-container">
-            <h2>Welcome to st Janani  Kabalagala</h2>
-            <p>Growing in faith, serving in love. Join us for worship and fellowship.</p>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/img/our church.jpg" alt="Church service">
+            <div class="carousel-container">
+              <h2>Welcome to St. Janani Kabalagala</h2>
+              <p>Growing in faith, serving in love. Join us for worship and fellowship.</p>
+              <a href="about.html" class="btn btn-primary">Learn More</a>
+            </div>
           </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item">
-          <img src="./assets/img/hero_1.png" alt="Bible study">
-          <div class="carousel-container">
-            <h2>Deepening Our Faith Together</h2>
-            <p>Join our Bible study groups and grow spiritually with our community.</p>
+    
+          <div class="carousel-item">
+            <img src="./assets/img/chioe.jpg" alt="Bible study">
+            <div class="carousel-container">
+              <h2>Deepening Our Faith Together</h2>
+              <p>Join our Bible study groups and grow spiritually with our community.</p>
+              <a href="services.html" class="btn btn-primary">Our Services</a>
+            </div>
           </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item">
-          <img src="assets/img/community.jpg" alt="Community service">
-          <div class="carousel-container">
-            <h2>Serving Our Community</h2>
-            <p>We reach out to those in need with the love of Christ.</p>
+    
+          <div class="carousel-item">
+            <img src="./assets/img/community.jpg" alt="Community service">
+            <div class="carousel-container">
+              <h2>Serving Our Community</h2>
+              <p>We reach out to those in need with the love of Christ.</p>
+              <a href="contact.html" class="btn btn-primary">Join Us</a>
+            </div>
           </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item">
-          <img src="assets/img/yout.jpg" alt="Youth ministry">
-          <div class="carousel-container">
-            <h2>Youth Ministry</h2>
-            <p>Empowering the next generation of Christian leaders.</p>
+    
+          <div class="carousel-item">
+            <img src="./assets/img/church.jpeg" alt="Sunday school">
+            <div class="carousel-container">
+              <h2>Sunday School Ministry</h2>
+              <p>Empowering the next generation with God’s word.</p>
+              <a href="sundayschool.html" class="btn btn-primary">Explore</a>
+            </div>
           </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item">
-          <img src="assets/img/chioe.jpg" alt="Worship">
-          <div class="carousel-container">
-            <h2>Praise and Worship</h2>
-            <p>Lifting our voices in praise to our Lord and Savior.</p>
+    
+          <div class="carousel-item">
+            <img src="./assets/img/yout.jpg" alt="Prayer meeting">
+            <div class="carousel-container">
+              <h2>Power in Prayer</h2>
+              <p>Come and experience the power of communal prayer every week.</p>
+              <a href="prayer.html" class="btn btn-primary">Join Prayer</a>
+            </div>
           </div>
-        </div><!-- End Carousel Item -->
-
-        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-          <span class="" aria-hidden="true"></span>
-        </a>
-
-        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-          <span class="" aria-hidden="true"></span>
-        </a>
-
-        <ol class="carousel-indicators"></ol>
-
+        </div>
+    
+        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+    
+        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
       </div>
+    </section>
+    
 
-    </section><!-- /Hero Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
+    <!-- Ministries Section -->
+    <section id="ministries" class="section">
       <div class="container section-title" data-aos="fade-up">
         <h2>OUR MINISTRIES</h2>
         <p>Serving God by serving others</p>
-      </div><!-- End Section Title -->
-      <div class="content">
-        <div class="container">
-          <div class="row g-0">
-            <div class="col-lg-3 col-md-6">
-              <div class="service-item">
-                <span class="number">01</span>
-                <div class="service-item-icon">
-                  <i class="bi bi-book" style="font-size: 3rem;"></i>
-                </div>
-                <div class="service-item-content">
-                  <h3 class="service-heading">Sunday Worship</h3>
-                  <p>
-                    Join us every Sunday for uplifting worship services and biblical teaching.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="service-item">
-                <span class="number">02</span>
-                <div class="service-item-icon">
-                  <i class="bi bi-people" style="font-size: 3rem;"></i>
-                </div>
-                <div class="service-item-content">
-                  <h3 class="service-heading">Small Groups</h3>
-                  <p>
-                    Grow in faith through our fellowship and Bible study groups.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="service-item">
-                <span class="number">03</span>
-                <div class="service-item-icon">
-                  <i class="bi bi-heart" style="font-size: 3rem;"></i>
-                </div>
-                <div class="service-item-content">
-                  <h3 class="service-heading">Prayer Ministry</h3>
-                  <p>
-                    Our prayer team is available to pray with you and for your needs.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="service-item">
-                <span class="number">04</span>
-                <div class="service-item-icon">
-                  <i class="bi bi-music-note" style="font-size: 3rem;"></i>
-                </div>
-                <div class="service-item-content">
-                  <h3 class="service-heading">Music Ministry</h3>
-                  <p>
-                    Join our choir or worship team to glorify God through music.
-                  </p>
-                </div>
-              </div>
-            </div>
+      </div>
 
-            <div class="col-lg-3 col-md-6">
-              <div class="service-item">
-                <span class="number">05</span>
-                <div class="service-item-icon">
-                  <i class="bi bi-emoji-smile" style="font-size: 3rem;"></i>
-                </div>
-                <div class="service-item-content">
-                  <h3 class="service-heading">Children's Ministry</h3>
-                  <p>
-                    Nurturing young hearts to know and love Jesus.
-                  </p>
-                </div>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="service-item">
+              <span class="number">01</span>
+              <div class="service-item-icon">
+                <i class="bi bi-book" style="font-size: 3rem;"></i>
+              </div>
+              <div class="service-item-content">
+                <h3 class="service-heading">Sunday Worship</h3>
+                <p>Join us every Sunday for uplifting worship services and biblical teaching.</p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="service-item">
-                <span class="number">06</span>
-                <div class="service-item-icon">
-                  <i class="bi bi-activity" style="font-size: 3rem;"></i>
-                </div>
-                <div class="service-item-content">
-                  <h3 class="service-heading">Youth Ministry</h3>
-                  <p>
-                    Engaging programs for teens to grow in their faith.
-                  </p>
-                </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="service-item">
+              <span class="number">02</span>
+              <div class="service-item-icon">
+                <i class="bi bi-people" style="font-size: 3rem;"></i>
+              </div>
+              <div class="service-item-content">
+                <h3 class="service-heading">Small Groups</h3>
+                <p>Grow in faith through our fellowship and Bible study groups.</p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="service-item">
-                <span class="number">07</span>
-                <div class="service-item-icon">
-                  <i class="bi bi-hand-thumbs-up" style="font-size: 3rem;"></i>
-                </div>
-                <div class="service-item-content">
-                  <h3 class="service-heading">Outreach</h3>
-                  <p>
-                    Sharing God's love through community service and missions.
-                  </p>
-                </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="service-item">
+              <span class="number">03</span>
+              <div class="service-item-icon">
+                <i class="bi bi-heart" style="font-size: 3rem;"></i>
+              </div>
+              <div class="service-item-content">
+                <h3 class="service-heading">Prayer Ministry</h3>
+                <p>Our prayer team is available to pray with you and for your needs.</p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="service-item">
-                <span class="number">08</span>
-                <div class="service-item-icon">
-                  <i class="bi bi-cup-hot" style="font-size: 3rem;"></i>
-                </div>
-                <div class="service-item-content">
-                  <h3 class="service-heading">Women's Fellowship</h3>
-                  <p>
-                    Encouraging and equipping women in their spiritual journey.
-                  </p>
-                </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="service-item">
+              <span class="number">04</span>
+              <div class="service-item-icon">
+                <i class="bi bi-music-note" style="font-size: 3rem;"></i>
+              </div>
+              <div class="service-item-content">
+                <h3 class="service-heading">Music Ministry</h3>
+                <p>Join our choir or worship team to glorify God through music.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="service-item">
+              <span class="number">05</span>
+              <div class="service-item-icon">
+                <i class="bi bi-emoji-smile" style="font-size: 3rem;"></i>
+              </div>
+              <div class="service-item-content">
+                <h3 class="service-heading">Children's Ministry</h3>
+                <p>Nurturing young hearts to know and love Jesus.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="service-item">
+              <span class="number">06</span>
+              <div class="service-item-icon">
+                <i class="bi bi-activity" style="font-size: 3rem;"></i>
+              </div>
+              <div class="service-item-content">
+                <h3 class="service-heading">Youth Ministry</h3>
+                <p>Engaging programs for teens to grow in their faith.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="service-item">
+              <span class="number">07</span>
+              <div class="service-item-icon">
+                <i class="bi bi-hand-thumbs-up" style="font-size: 3rem;"></i>
+              </div>
+              <div class="service-item-content">
+                <h3 class="service-heading">Outreach</h3>
+                <p>Sharing God's love through community service and missions.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="service-item">
+              <span class="number">08</span>
+              <div class="service-item-icon">
+                <i class="bi bi-cup-hot" style="font-size: 3rem;"></i>
+              </div>
+              <div class="service-item-content">
+                <h3 class="service-heading">Women's Fellowship</h3>
+                <p>Encouraging and equipping women in their spiritual journey.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- /Services Section -->
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="about section dark-background">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="./assets/img/Namirembe-cathedral.jpg" alt="Church history" class="img-fluid img-overlap">
+          </div>
+          <div class="col-lg-5 ms-auto">
+            <h3 class="content-subtitle text-white opacity-50">Our Mission</h3>
+            <h2 class="content-title mb-4">
+              <strong>Proclaiming Christ</strong> in Uganda since 1877
+            </h2>
+            <p class="opacity-50">
+              The Church of Uganda is a member of the worldwide Anglican Communion. Our mission is to proclaim the Good News of the Kingdom of God, teach all nations to observe Christ's commandments, and provide pastoral care to all God's people.
+            </p>
 
-      <div class="content">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-              <img src="assets/img/Namirembe-cathedral.jpg" alt="Church history" class="img-fluid img-overlap" data-aos="zoom-out">
-            </div>
-            <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
-              <h3 class="content-subtitle text-white opacity-50">Our Mission</h3>
-              <h2 class="content-title mb-4">
-                <strong>Proclaiming Christ</strong> in Uganda since 1877
-              </h2>
-              <p class="opacity-50">
-                The Church of Uganda is a member of the worldwide Anglican Communion. Our mission is to proclaim the Good News of the Kingdom of God, teach all nations to observe Christ's commandments, and provide pastoral care to all God's people.
-              </p>
-
-              <div class="row my-5">
-                <div class="col-lg-12 d-flex align-items-start mb-4">
-                  <i class="bi bi-book me-4 display-6"></i>
-                  <div>
-                    <h4 class="m-0 h5 text-white">Biblical Teaching</h4>
-                    <p class="text-white opacity-50">Rooted in Scripture, relevant to life</p>
-                  </div>
+            <div class="row my-5">
+              <div class="col-lg-12 d-flex align-items-start mb-4">
+                <i class="bi bi-book me-4 display-6"></i>
+                <div>
+                  <h4 class="m-0 h5 text-white">Biblical Teaching</h4>
+                  <p class="text-white opacity-50">Rooted in Scripture, relevant to life</p>
                 </div>
-                <div class="col-lg-12 d-flex align-items-start mb-4">
-                  <i class="bi bi-heart me-4 display-6"></i>
-                  <div>
-                    <h4 class="m-0 h5 text-white">Loving Community</h4>
-                    <p class="text-white opacity-50">Growing together in Christ</p>
-                  </div>
+              </div>
+              <div class="col-lg-12 d-flex align-items-start mb-4">
+                <i class="bi bi-heart me-4 display-6"></i>
+                <div>
+                  <h4 class="m-0 h5 text-white">Loving Community</h4>
+                  <p class="text-white opacity-50">Growing together in Christ</p>
                 </div>
-                <div class="col-lg-12 d-flex align-items-start">
-                  <i class="bi bi-globe me-4 display-6"></i>
-                  <div>
-                    <h4 class="m-0 h5 text-white">Global Connection</h4>
-                    <p class="text-white opacity-50">Part of the worldwide Anglican Communion</p>
-                  </div>
+              </div>
+              <div class="col-lg-12 d-flex align-items-start">
+                <i class="bi bi-globe me-4 display-6"></i>
+                <div>
+                  <h4 class="m-0 h5 text-white">Global Connection</h4>
+                  <p class="text-white opacity-50">Part of the worldwide Anglican Communion</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- /About Section -->
+    </section>
 
-    <!-- About 3 Section -->
-    <section id="about-3" class="about-3 section">
-
+    <!-- Faith Section -->
+    <section id="faith" class="section">
       <div class="container">
         <div class="row gy-4 justify-content-between align-items-center">
           <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
-            <img src="assets/img/our church.jpg" alt="Church building" class="img-fluid">
-            <a href="https://youtu.be/RMlEmYEWQo0?si=cP_Vzv5QIZnw9a2M" class="glightbox pulsating-play-btn">
+            <img src="./assets/img/our church.jpg" alt="Church building" class="img-fluid">
+            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn">
               <span class="play"><i class="bi bi-play-fill"></i></span>
             </a>
           </div>
-          <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-5 order-lg-1">
             <h2 class="content-title mb-4">Faith Makes Life Better</h2>
             <p class="mb-4">
               At Church of Uganda, we believe that a relationship with Jesus Christ transforms lives. Through worship, fellowship, and service, we help people experience the abundant life that God intends for all His children.
             </p>
-            <ul class="list-unstyled list-check">
+            <ul class="list-check">
               <li>Weekly worship services</li>
               <li>Bible study and discipleship programs</li>
               <li>Community outreach and missions</li>
             </ul>
 
-            <p><a href="about.html" class="btn-cta">Learn more about us</a></p>
+            <a href="about.html" class="btn-cta">Learn more about us</a>
           </div>
         </div>
       </div>
-    </section><!-- /About 3 Section -->
+    </section>
 
-    <!-- Services 2 Section -->
-    <section id="services-2" class="services-2 section dark-background">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+    <!-- Worship Services Section -->
+    <section id="worship" class="section dark-background">
+      <div class="container section-title">
         <h2>Worship Services</h2>
         <p>Join us for worship and fellowship</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="services-carousel-wrap">
         <div class="container">
-          <div class="swiper init-swiper">
-            <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
-                },
-                "navigation": {
-                  "nextEl": ".js-custom-next",
-                  "prevEl": ".js-custom-prev"
-                },
-                "breakpoints": {
-                  "320": {
-                    "slidesPerView": 1,
-                    "spaceBetween": 40
-                  },
-                  "1200": {
-                    "slidesPerView": 3,
-                    "spaceBetween": 40
-                  }
-                }
-              }
-            </script>
-            <button class="navigation-prev js-custom-prev">
-              <i class="bi bi-arrow-left-short"></i>
-            </button>
-            <button class="navigation-next js-custom-next">
-              <i class="bi bi-arrow-right-short"></i>
-            </button>
+          <div class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <div class="service-item">
+                <div class="service-item position-relative">
+                  <img src="./assets/img/service_1.jpeg" alt="Morning worship" class="img-fluid">
                   <div class="service-item-contents">
-                    <a href="#">
-                      <span class="service-item-category">Sunday</span>
-                      <h2 class="service-item-title">Morning Worship</h2>
-                    </a>
+                    <span class="service-item-category">Sunday</span>
+                    <h2 class="service-item-title">Morning Worship</h2>
                   </div>
-                  <img src="assets/img/chioe.jpg" alt="Morning worship" class="img-fluid">
                 </div>
               </div>
               <div class="swiper-slide">
-                <div class="service-item">
+                <div class="service-item position-relative">
+                  <img src="./assets/img/Events-Sunday-Morning (1).jpg" alt="Evening service" class="img-fluid">
                   <div class="service-item-contents">
-                    <a href="#">
-                      <span class="service-item-category">Sunday</span>
-                      <h2 class="service-item-title">Evening Service</h2>
-                    </a>
+                    <span class="service-item-category">Sunday</span>
+                    <h2 class="service-item-title">Evening Service</h2>
                   </div>
-                  <img src="assets/img/yout.jpg" alt="Evening service" class="img-fluid">
                 </div>
               </div>
               <div class="swiper-slide">
-                <div class="service-item">
+                <div class="service-item position-relative">
+                  <img src="./assets/img/tea.jpg" alt="Prayer meeting" class="img-fluid">
                   <div class="service-item-contents">
-                    <a href="#">
-                      <span class="service-item-category">Wednesday</span>
-                      <h2 class="service-item-title">Prayer Meeting</h2>
-                    </a>
+                    <span class="service-item-category">Wednesday</span>
+                    <h2 class="service-item-title">Prayer Meeting</h2>
                   </div>
-                  <img src="assets/img/Events-Sunday-Morning (1).jpg" alt="Prayer meeting" class="img-fluid">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="service-item">
-                  <div class="service-item-contents">
-                    <a href="#">
-                      <span class="service-item-category">Friday</span>
-                      <h2 class="service-item-title">Youth Service</h2>
-                    </a>
-                  </div>
-                  <img src="assets/img/emediong-umoh-wqY571h7HKU-unsplash.jpg" alt="Youth service" class="img-fluid">
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="service-item">
-                  <div class="service-item-contents">
-                    <a href="#">
-                      <span class="service-item-category">Monthly</span>
-                      <h2 class="service-item-title">Holy Communion</h2>
-                    </a>
-                  </div>
-                  <img src="assets/img/tea.jpg" alt="Holy communion" class="img-fluid">
                 </div>
               </div>
             </div>
             <div class="swiper-pagination"></div>
           </div>
+          <button class="navigation-prev">
+            <i class="bi bi-arrow-left"></i>
+          </button>
+          <button class="navigation-next">
+            <i class="bi bi-arrow-right"></i>
+          </button>
         </div>
       </div>
-    </section><!-- /Services 2 Section -->
+    </section>
 
-    
-
-    <!-- Recent Posts Section -->
-    <section id="recent-posts" class="recent-posts section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+    <!-- Recent Sermons Section -->
+    <section id="sermons" class="section">
+      <div class="container section-title">
         <h2>Recent Sermons</h2>
         <p>Biblical teaching for daily living</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/mr.kasa.jpg" class="img-fluid" alt="Sermon">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="post-item h-100">
+              <div class="post-img position-relative">
+                <img src="./assets/img/rev.jpg" class="img-fluid" alt="Sermon">
                 <span class="post-date">Last Sunday</span>
               </div>
-
               <div class="post-content d-flex flex-column">
-
                 <h3 class="post-title">Walking in God's Purpose</h3>
-
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Mr.kasana </span>
+                    <i class="bi bi-person"></i> <span class="ps-2">Mr. Kasana</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
                     <i class="bi bi-clock"></i> <span class="ps-2">45 min</span>
                   </div>
                 </div>
-
                 <hr>
-
                 <a href="sermon-details.html" class="readmore stretched-link"><span>Listen Now</span><i class="bi bi-arrow-right"></i></a>
-
               </div>
-
             </div>
-          </div><!-- End post item -->
+          </div>
 
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/sir.jpg" class="img-fluid" alt="Sermon">
+          <div class="col-lg-4 col-md-6">
+            <div class="post-item h-100">
+              <div class="post-img position-relative">
+                <img src="./assets/img/mr.kasa.jpg" class="img-fluid" alt="Sermon">
                 <span class="post-date">2 weeks ago</span>
               </div>
-
               <div class="post-content d-flex flex-column">
-
                 <h3 class="post-title">The Power of Prayer</h3>
-
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Rev. kato Nansubuga</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">Rev. Kato Nansubuga</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
                     <i class="bi bi-clock"></i> <span class="ps-2">38 min</span>
                   </div>
                 </div>
-
                 <hr>
-
                 <a href="sermon-details.html" class="readmore stretched-link"><span>Listen Now</span><i class="bi bi-arrow-right"></i></a>
-
               </div>
-
             </div>
-          </div><!-- End post item -->
+          </div>
 
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="post-item position-relative h-100">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/rev.jpg" class="img-fluid" alt="Sermon">
+          <div class="col-lg-4 col-md-6">
+            <div class="post-item h-100">
+              <div class="post-img position-relative">
+                <img src="./assets/img/sir.jpg" class="img-fluid" alt="Sermon">
                 <span class="post-date">3 weeks ago</span>
               </div>
-
               <div class="post-content d-flex flex-column">
-
                 <h3 class="post-title">Living by Faith</h3>
-
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-person"></i> <span class="ps-2">Bishop James Kintu</span>
@@ -527,66 +1249,26 @@
                     <i class="bi bi-clock"></i> <span class="ps-2">52 min</span>
                   </div>
                 </div>
-
                 <hr>
-
                 <a href="sermon-details.html" class="readmore stretched-link"><span>Listen Now</span><i class="bi bi-arrow-right"></i></a>
-
               </div>
-
-            </div>
-          </div><!-- End post item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Recent Posts Section -->
-<!-- 
-    
-    <section id="call-to-action" class="call-to-action section light-background">
-
-      <div class="content">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6">
-              <h3>Join Our Mailing List</h3>
-              <p class="opacity-50">
-                Stay updated with church news, events, and spiritual encouragement.
-              </p>
-            </div>
-            <div class="col-lg-6">
-              <form action="forms/newsletter.php" class="form-subscribe php-email-form">
-                <div class="form-group d-flex align-items-stretch">
-                  <input type="email" name="email" class="form-control h-100" placeholder="Enter your e-mail">
-                  <input type="submit" class="btn btn-secondary px-4" value="Subscribe">
-                </div>
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">
-                  Your subscription request has been sent. Thank you!
-                </div>
-              </form>
             </div>
           </div>
         </div>
       </div>
-    </section>/Call To Action Section -->
-
+    </section>
   </main>
 
-  <footer id="footer" class="footer dark-background">
-
+  <!-- Footer -->
+  <footer id="footer" class="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">St.Janai C.O.U</span>
+              <span class="sitename">St. Janani C.O.U</span>
             </a>
             <div class="footer-contact pt-3">
-              <!-- <p>Kampala Road</p>
-              <p>Kampala, Uganda</p> -->
               <p class="mt-3"><strong>Phone:</strong> <span>0754 482433</span></p>
               <p><strong>Email:</strong> <span>stjanani12@gmail.com</span></p>
             </div>
@@ -598,32 +1280,10 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="services.html">Services</a></li>
-              <li><a href="projects.html">Ministries</a></li>
+              <li><a href="ministries.html">Ministries</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
-
-          <!-- <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Ministries</h4>
-            <ul>
-              <li><a href="#">Children</a></li>
-              <li><a href="#">Youth</a></li>
-              <li><a href="#">Women</a></li>
-              <li><a href="#">Men</a></li>
-              <li><a href="#">Outreach</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="#">Sermons</a></li>
-              <li><a href="#">Bible Studies</a></li>
-              <li><a href="#">Prayer Requests</a></li>
-              <li><a href="#">Events Calendar</a></li>
-              <li><a href="#">Giving</a></li>
-            </ul>
-          </div> -->
 
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Connect</h4>
@@ -632,21 +1292,18 @@
               <li><a href="https://www.youtube.com/@StJananichurchofugandakabalaga">YouTube</a></li>
               <li><a href="https://x.com/church28746">Twitter</a></li>
               <li><a href="mailto:stjanani12@gmail.com">Email</a></li>
-
               <li><a href="https://chat.whatsapp.com/GU7qVPn5eW13q6PXlYkjM8">WhatsApp</a></li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>
 
-    <div class="copyright text-center"> 
+    <div class="copyright text-center">
       <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
-
         <div class="d-flex flex-column align-items-center align-items-lg-start">
           <div>
-            © Copyright <strong><span>Church of Uganda</span></strong>. All Rights Reserved
+            © Copyright <strong><span>St. Janani Church of Uganda</span></strong>. All Rights Reserved
           </div>
           <div class="credits">
             Designed by <a href="#">Church Web Team</a>
@@ -655,33 +1312,100 @@
 
         <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
           <a href="https://www.facebook.com/profile.php?id=100083175863792"><i class="bi bi-facebook"></i></a>
-          <a href="https://x.com/church28746"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://x.com/church28746"><i class="bi bi-twitter"></i></a>
           <a href="https://www.youtube.com/@StJananichurchofugandakabalaga"><i class="bi bi-youtube"></i></a>
           <a href="mailto:stjanani12@gmail.com"><i class="bi bi-envelope"></i></a>
           <a href="https://chat.whatsapp.com/GU7qVPn5eW13q6PXlYkjM8"><i class="bi bi-whatsapp"></i></a>
         </div>
-
       </div>
     </div>
-
   </footer>
 
-  <!-- Scroll Top -->
+  <!-- Scroll Top Button -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script>
+    // Mobile Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+      const navmenu = document.querySelector('.navmenu');
+      
+      if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', function(e) {
+          navmenu.classList.toggle('active');
+          this.classList.toggle('bi-list');
+          this.classList.toggle('bi-x');
+        });
+      }
+      
+      // Scroll to top button
+      const scrollTop = document.querySelector('#scroll-top');
+      
+      if (scrollTop) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 100) {
+            scrollTop.classList.add('active');
+          } else {
+            scrollTop.classList.remove('active');
+          }
+        });
+        
+        scrollTop.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+      
+      // Initialize carousel
+      const myCarousel = document.querySelector('#hero-carousel');
+      if (myCarousel) {
+        const carousel = new bootstrap.Carousel(myCarousel, {
+          interval: 5000,
+          wrap: true
+        });
+      }
+      
+      // Simple swiper implementation for services
+      const serviceSlides = document.querySelectorAll('.swiper-slide');
+      let currentSlide = 0;
+      
+      function showSlide(n) {
+        serviceSlides.forEach(slide => {
+          slide.style.display = 'none';
+        });
+        
+        if (n >= serviceSlides.length) {
+          currentSlide = 0;
+        } else if (n < 0) {
+          currentSlide = serviceSlides.length - 1;
+        } else {
+          currentSlide = n;
+        }
+        
+        if (serviceSlides[currentSlide]) {
+          serviceSlides[currentSlide].style.display = 'block';
+        }
+      }
+      
+      if (serviceSlides.length > 0) {
+        showSlide(currentSlide);
+        
+        document.querySelector('.navigation-next')?.addEventListener('click', () => {
+          showSlide(currentSlide + 1);
+        });
+        
+        document.querySelector('.navigation-prev')?.addEventListener('click', () => {
+          showSlide(currentSlide - 1);
+        });
+      }
+    });
+  </script>
 </body>
-
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -8,34 +7,583 @@
   <meta name="description" content="Contact St. Janani Church of Uganda in Kabalagala for inquiries, prayer requests, or spiritual guidance">
   <meta name="keywords" content="church contact, uganda church, kabalagala church, anglican church, prayer request">
 
-  <!-- Favicons -->
-  <link href="assets/img/logo.jpg" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #408652;
+      --primary-dark: #017d24;
+      --secondary: hsl(33, 43%, 71%);
+      --light: hwb(38 94% 3% / 0.834);
+      --dark: #1e1e1e;
+      --gray: #6c757d;
+      --success: #28a745;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: #444;
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6, .sitename {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      padding: 10px 25px;
+      border-radius: 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary);
+      border-color: var(--primary);
+      padding: 10px 25px;
+      border-radius: 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+    
+    /* Header */
+    .header {
+      background-color: var(--white);
+      padding: 15px 0;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      max-height: 60px;
+      margin-right: 15px;
+    }
+    
+    .logo h2 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: var(--primary);
+    }
+    
+    .navmenu ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navmenu li {
+      position: relative;
+      padding: 0 15px;
+    }
+    
+    .navmenu a {
+      display: block;
+      position: relative;
+      color: var(--dark);
+      font-weight: 500;
+      padding: 10px 0;
+    }
+    
+    .navmenu a.active, 
+    .navmenu a:hover {
+      color: var(--primary);
+    }
+    
+    .navmenu a.active:after, 
+    .navmenu a:hover:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 5px;
+      left: 0;
+      background-color: var(--primary);
+    }
+    
+    .mobile-nav-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    
+    /* Page Title */
+    .page-title {
+      position: relative;
+      padding: 120px 0 60px;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: var(--white);
+    }
+    
+    .page-title:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .page-title .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .page-title h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    
+    .page-title p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+    
+    .breadcrumbs ol li {
+      display: inline-block;
+    }
+    
+    .breadcrumbs ol li + li {
+      padding-left: 10px;
+    }
+    
+    .breadcrumbs ol li + li:before {
+      display: inline-block;
+      padding-right: 10px;
+      color: var(--white);
+      content: "/";
+    }
+    
+    .breadcrumbs ol li a {
+      color: var(--secondary);
+    }
+    
+    .breadcrumbs ol li.current {
+      color: var(--white);
+    }
+    
+    /* Section Styling */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .section-title h2:after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-title p {
+      font-size: 1.2rem;
+      color: var(--gray);
+    }
+    
+    .dark-background {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+    
+    .dark-background .section-title h2:after {
+      background-color: var(--secondary);
+    }
+    
+    .dark-background .section-title p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Contact Section */
+    .contact .info {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+    
+    .contact .info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    
+    .contact .info p {
+      margin-bottom: 30px;
+    }
+    
+    .contact .info-item {
+      margin-bottom: 30px;
+    }
+    
+    .contact .info-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .contact .info-item i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-right: 20px;
+    }
+    
+    .contact .info-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+    
+    .contact .info-item p {
+      margin-bottom: 0;
+    }
+    
+    .contact form {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact form .form-control,
+    .contact form .form-select {
+      border-radius: 0;
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      font-size: 0.9rem;
+    }
+    
+    .contact form .form-control:focus,
+    .contact form .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: none;
+    }
+    
+    .contact form button {
+      background-color: var(--primary);
+      border: none;
+      color: var(--white);
+      padding: 12px 30px;
+      font-weight: 500;
+      border-radius: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .contact form button:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .contact .loading {
+      display: none;
+      text-align: center;
+      padding: 15px;
+    }
+    
+    .contact .error-message {
+      display: none;
+      color: #fff;
+      background: #ed3c0d;
+      text-align: left;
+      padding: 15px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+    
+    .contact .sent-message {
+      display: none;
+      color: #fff;
+      background: #18d26e;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.7);
+      padding-top: 80px;
+    }
+    
+    .footer-top {
+      padding-bottom: 40px;
+    }
+    
+    .footer h4 {
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer h4:after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background-color: var(--secondary);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+    
+    .footer-contact p {
+      margin-bottom: 10px;
+    }
+    
+    .footer-contact strong {
+      color: var(--white);
+    }
+    
+    .copyright {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .social-links {
+      display: flex;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    /* Scroll Top Button */
+    .scroll-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .scroll-top.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .scroll-top:hover {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1199px) {
+      .page-title h1 {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .navmenu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background-color: var(--white);
+        padding: 80px 20px 0;
+        transition: all 0.3s ease;
+        z-index: 1001;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+      }
+      
+      .navmenu.active {
+        right: 0;
+      }
+      
+      .navmenu ul {
+        flex-direction: column;
+      }
+      
+      .navmenu li {
+        padding: 10px 0;
+      }
+      
+      .mobile-nav-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1002;
+      }
+      
+      .mobile-nav-toggle.bi-x {
+        color: var(--dark);
+      }
+      
+      .page-title {
+        padding: 100px 0 50px;
+      }
+      
+      .page-title h1 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .section {
+        padding: 60px 0;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .page-title h1 {
+        font-size: 1.8rem;
+      }
+      
+      .logo h2 {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .page-title {
+        padding: 80px 0 40px;
+      }
+      
+      .page-title h1 {
+        font-size: 1.5rem;
+      }
+      
+      .logo img {
+        max-height: 40px;
+      }
+      
+      .logo h2 {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 
 <body class="contact-page">
-
-  <header id="header" class="header d-flex align-items-center position-relative">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.jpg" alt="Church of Uganda">
-        <h2>St. Janani Church of Uganda Kabalagala</h2>
+  <!-- Header -->
+  <header id="header" class="header">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo">
+        <img src="./assets/img/logo.jpg" alt="St. Janani Church">
+        <h2>St. Janani Church of Uganda</h2>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -43,18 +591,18 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
+      <i class="mobile-nav-toggle bi bi-list"></i>
     </div>
   </header>
 
-  <main class="main">
-
+  <main>
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/hero_2.jpg);">
+    <div class="page-title dark-background" style="background-image: url('./assets/img/our\ church.jpg');">
       <div class="container position-relative">
         <h1>Contact Us</h1>
         <p>We'd love to hear from you</p>
@@ -65,22 +613,18 @@
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
-
       <div class="mb-5">
-        <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.753404042596!2d32.58231481475393!3d0.3135999999999966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbd5d1a7a0a0f%3A0x1e3a1a1a1a1a1a1a!2sSt.%20Janani%20Church%20of%20Uganda%20Kabalagala!5e0!3m2!1sen!2sug!4v1620000000000!5m2!1sen!2sug" frameborder="0" allowfullscreen=""></iframe>
-      </div><!-- End Google Maps -->
+        <iframe style="width: 100%; height: 400px; border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7534040425964!2d32.58231481475393!3d0.3135999999999966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbd5d1a7a0a0f%3A0x1e3a1a1a1a1a1a1a!2sSt.%20Janani%20Church%20of%20Uganda%20Kabalagala!5e0!3m2!1sen!2sug!4v1620000000000!5m2!1sen!2sug" allowfullscreen=""></iframe>
+      </div>
 
-      <div class="container" data-aos="fade">
-
-        <div class="row gy-5 gx-lg-5">
-
+      <div class="container">
+        <div class="row g-5">
           <div class="col-lg-4">
-
-            <div class="info">
+            <div class="info h-100">
               <h3>Connect With Us</h3>
               <p>We welcome your inquiries, prayer requests, and feedback. Our church office is open Monday to Friday from 8:00 AM to 5:00 PM.</p>
 
@@ -90,23 +634,23 @@
                   <h4>Location:</h4>
                   <p>Kabalagala Road, Kampala<br>Uganda</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="info-item d-flex">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h4>Email:</h4>
-                  <p>info@stjanani-kabalagala.org<br>prayer@stjanani-kabalagala.org</p>
+                  <p>stjanani12@gmail.com<br>prayer@stjanani-kabalagala.org</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="info-item d-flex">
                 <i class="bi bi-phone flex-shrink-0"></i>
                 <div>
                   <h4>Call:</h4>
-                  <p>+256 414 123 456<br>+256 772 123 456 (Pastor's line)</p>
+                  <p>0754 482433<br>+256 772 123 456 (Pastor's line)</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="info-item d-flex">
                 <i class="bi bi-clock flex-shrink-0"></i>
@@ -115,14 +659,12 @@
                   <p>Monday-Friday: 8:00 AM - 5:00 PM<br>
                   Sunday: 7:00 AM - 1:00 PM</p>
                 </div>
-              </div><!-- End Info Item -->
-
+              </div>
             </div>
-
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="#" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -152,74 +694,22 @@
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-    <!-- Emergency Contact Section -->
-    <!-- <section class="emergency-contact section light-background">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <div class="emergency-box">
-              <i class="bi bi-exclamation-triangle display-4 text-danger"></i>
-              <h3 class="mt-3">Pastoral Emergency Contact</h3>
-              <p>For urgent pastoral needs outside office hours</p>
-              <h4 class="mt-2">+256 772 987 654</h4>
-            </div>
           </div>
         </div>
       </div>
-    </section>/Emergency Contact Section -->
-
-    <!-- Call To Action Section -->
-    <!-- <section id="call-to-action" class="call-to-action section dark-background">
-
-      <div class="content">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6">
-              <h3>Join Our Mailing List</h3>
-              <p class="opacity-50">
-                Stay updated with our weekly services, events, and spiritual encouragement.
-              </p>
-            </div>
-            <div class="col-lg-6">
-              <form action="forms/newsletter.php" class="form-subscribe php-email-form">
-                <div class="form-group d-flex align-items-stretch">
-                  <input type="email" name="email" class="form-control h-100" placeholder="Enter your e-mail" required>
-                  <input type="submit" class="btn btn-secondary px-4" value="Subscribe">
-                </div>
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">
-                  Thank you for subscribing to our newsletter!
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>/Call To Action Section -->
-
+    </section>
   </main>
 
-  <footer id="footer" class="footer dark-background">
-
+  <!-- Footer -->
+  <footer id="footer" class="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">St. Janani Church</span>
+              <span class="sitename">St. Janani C.O.U</span>
             </a>
             <div class="footer-contact pt-3">
-              <!-- <p>Kampala Road</p>
-              <p>Kampala, Uganda</p> -->
               <p class="mt-3"><strong>Phone:</strong> <span>0754 482433</span></p>
               <p><strong>Email:</strong> <span>stjanani12@gmail.com</span></p>
             </div>
@@ -231,53 +721,30 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="services.html">Services</a></li>
-              <li><a href="#">Ministries</a></li>
+              <li><a href="ministries.html">Ministries</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
 
-          <!-- <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Ministries</h4>
-            <ul>
-              <li><a href="#">Youth</a></li>
-              <li><a href="#">Women</a></li>
-              <li><a href="#">Men</a></li>
-              <li><a href="#">Choir</a></li>
-              <li><a href="#">Sunday School</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="#">Sermons</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Bible Studies</a></li>
-              <li><a href="#">Prayer Requests</a></li>
-              <li><a href="#">Gallery</a></li>
-            </ul>
-          </div> -->
-
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Connect</h4>
             <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">WhatsApp</a></li>
-              <li><a href="#">YouTube</a></li>
-              <li><a href="#">Instagram</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=100083175863792">Facebook</a></li>
+              <li><a href="https://www.youtube.com/@StJananichurchofugandakabalaga">YouTube</a></li>
+              <li><a href="https://x.com/church28746">Twitter</a></li>
+              <li><a href="mailto:stjanani12@gmail.com">Email</a></li>
+              <li><a href="https://chat.whatsapp.com/GU7qVPn5eW13q6PXlYkjM8">WhatsApp</a></li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>
 
     <div class="copyright text-center">
       <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
-
         <div class="d-flex flex-column align-items-center align-items-lg-start">
           <div>
-            © Copyright <strong><span>St. Janani Church of Uganda Kabalagala</span></strong>. All Rights Reserved
+            © Copyright <strong><span>St. Janani Church of Uganda</span></strong>. All Rights Reserved
           </div>
           <div class="credits">
             A member of the Church of Uganda - Anglican Communion
@@ -286,33 +753,57 @@
 
         <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
           <a href="https://www.facebook.com/profile.php?id=100083175863792"><i class="bi bi-facebook"></i></a>
-          <a href="https://x.com/church28746"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://x.com/church28746"><i class="bi bi-twitter"></i></a>
           <a href="https://www.youtube.com/@StJananichurchofugandakabalaga"><i class="bi bi-youtube"></i></a>
           <a href="mailto:stjanani12@gmail.com"><i class="bi bi-envelope"></i></a>
           <a href="https://chat.whatsapp.com/GU7qVPn5eW13q6PXlYkjM8"><i class="bi bi-whatsapp"></i></a>
         </div>
-
       </div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script>
+    // Mobile Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+      const navmenu = document.querySelector('.navmenu');
+      
+      if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', function(e) {
+          navmenu.classList.toggle('active');
+          this.classList.toggle('bi-list');
+          this.classList.toggle('bi-x');
+        });
+      }
+      
+      // Scroll to top button
+      const scrollTop = document.querySelector('#scroll-top');
+      
+      if (scrollTop) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 100) {
+            scrollTop.classList.add('active');
+          } else {
+            scrollTop.classList.remove('active');
+          }
+        });
+        
+        scrollTop.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
 </body>
-
 </html>
